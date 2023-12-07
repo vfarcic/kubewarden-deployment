@@ -1,0 +1,56 @@
+# Kubewarden Artifacthub Package config
+#
+# Use this config to submit the policy to https://artifacthub.io.
+#
+# This config can be saved to its default location with:
+#   kwctl scaffold artifacthub > artifacthub-pkg.yml 
+version: 0.0.1
+name: crossplane-sql
+displayName: DOT SQL
+createdAt: 2023-12-04T18:18:23.974895Z
+description: Kubewarden Policies for dot-sql Crossplane Compositions
+license: Apache-2.0
+homeURL: https://github.com/vfarcic/kubewarden-crossplane-sql
+containersImages:
+- name: policy
+  image: ghcr.io/vfarcic/kubewarden/crossplane-sql:v0.0.1
+keywords:
+- crossplane
+- postgresql
+- kubewarden
+links:
+- name: policy
+  url: https://github.com/vfarcic/kubewarden-crossplane-sql/releases/download/v0.0.1/policy.wasm
+- name: source
+  url: https://github.com/vfarcic/kubewarden-crossplane-sql
+install: |
+  The policy can be obtained using [`kwctl`](https://github.com/kubewarden/kwctl):
+  ```console
+  kwctl pull ghcr.io/vfarcic/kubewarden/crossplane-sql:v0.0.1
+  ```
+  Then, generate the policy manifest and tune it to your liking. For example:
+  ```console
+  kwctl scaffold manifest -t ClusterAdmissionPolicy registry://ghcr.io/vfarcic/kubewarden/crossplane-sql:v0.0.1
+  ```
+maintainers:
+- name: Viktor Farcic
+  email: viktor@farcic.com
+provider:
+  name: kubewarden
+recommendations:
+- url: https://artifacthub.io/packages/helm/kubewarden/kubewarden-controller
+annotations:
+  kubewarden/mutation: 'false'
+  kubewarden/resources: SQLClaim, SQL
+  kubewarden/rules: |
+    - apiGroups:
+      - devopstoolkitseries.com
+      apiVersions:
+      - v1alpha1
+      resources:
+      - sqlclaims
+      - sqls
+      operations:
+      - CREATE
+      - UPDATE
+

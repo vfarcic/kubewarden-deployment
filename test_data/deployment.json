@@ -1,0 +1,44 @@
+{
+  "uid": "1299d386-525b-4032-98ae-1949f69f9cfc",
+  "kind": {
+    "group": "apps",
+    "kind": "Deployment",
+    "version": "v1"
+  },
+  "resource": {
+    "group": "apps",
+    "version": "v1",
+    "resource": "deployments"
+  },
+  "requestKind": {
+    "group": "apps",
+    "version": "v1",
+    "kind": "Deployment"
+  },
+  "requestResource": {
+    "group": "app",
+    "version": "v1",
+    "resource": "deployments"
+  },
+  "name": "my-deployment",
+  "namespace": "production",
+  "operation": "CREATE",
+  "userInfo": {
+    "username": "kubernetes-admin",
+    "groups": [
+      "system:masters",
+      "system:authenticated"
+    ]
+  },
+  "object": {
+    "apiVersion": "apps/v1",
+    "kind": "Deployment",
+    "metadata": {
+      "name": "my-deployment",
+      "namespace": "production"
+    },
+    "spec": {
+      "replicas": 1
+    }
+  }
+}
