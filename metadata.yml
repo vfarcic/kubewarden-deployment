@@ -1,22 +1,22 @@
 rules:
-- apiGroups: ["devopstoolkitseries.com"]
-  apiVersions: ["v1alpha1"]
-  resources: ["sqlclaims", "sqls"]
+- apiGroups: ["apps"]
+  apiVersions: ["v1"]
+  resources: ["deployments"]
   operations: ["CREATE", "UPDATE"]
 mutating: false
 contextAware: false
 executionMode: kubewarden-wapc
 backgroundAudit: false
 annotations:
-  io.artifacthub.displayName: DOT SQL
-  io.artifacthub.resources: SQLClaim, SQL
-  io.artifacthub.keywords: crossplane, postgresql, kubewarden
-  io.kubewarden.policy.ociUrl: ghcr.io/vfarcic/kubewarden/crossplane-sql
-  io.kubewarden.policy.title: crossplane-sql
-  io.kubewarden.policy.description: Kubewarden Policies for dot-sql Crossplane Compositions
+  io.artifacthub.displayName: Deployment
+  io.artifacthub.resources: Deployment
+  io.artifacthub.keywords: kubewarden
+  io.kubewarden.policy.ociUrl: c8n.io/vfarcic/kubewarden-deployment
+  io.kubewarden.policy.title: Deployment
+  io.kubewarden.policy.description: Kubewarden Policies for Deployments
   io.kubewarden.policy.author: "Viktor Farcic <viktor@farcic.com>"
-  io.kubewarden.policy.url: https://github.com/vfarcic/kubewarden-crossplane-sql
-  io.kubewarden.policy.source: https://github.com/vfarcic/kubewarden-crossplane-sql
+  io.kubewarden.policy.url: https://github.com/vfarcic/kubewarden-deployment-sql
+  io.kubewarden.policy.source: https://github.com/vfarcic/kubewarden-deployment
   io.kubewarden.policy.license: Apache-2.0
   io.kubewarden.policy.severity: medium
   io.kubewarden.policy.category: Resource validation

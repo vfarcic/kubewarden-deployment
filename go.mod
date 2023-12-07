@@ -1,4 +1,4 @@
-module github.com/vfarcic/kubewarden-crossplane-sql
+module github.com/vfarcic/kubewarden-deployment
 
 go 1.20
 
