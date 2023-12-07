@@ -1,4 +1,4 @@
-# Kubewarden Policies for dot-sql Crossplane Compositions
+# Kubewarden Policies for Deployments
 
 ## Test
 
