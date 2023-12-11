@@ -20,7 +20,7 @@ var deploymentObject = appsv1.Deployment{
 	},
 }
 
-func TestEmptyReplicasLeadsToApproval(t *testing.T) {
+func TestEmptyReplicasLeadsToDenied(t *testing.T) {
 	settings := Settings{}
 	deployment := appsv1.Deployment{
 		Metadata: &metav1.ObjectMeta{
@@ -45,8 +45,8 @@ func TestEmptyReplicasLeadsToApproval(t *testing.T) {
 		t.Errorf("Unexpected error: %+v", err)
 	}
 
-	if !response.Accepted {
-		t.Errorf("Unexpected rejection: msg %s - code %d", *response.Message, response.Code)
+	if response.Accepted {
+		t.Errorf("Unexpected acceptance: msg %s - code %d", *response.Message, response.Code)
 	}
 }
 

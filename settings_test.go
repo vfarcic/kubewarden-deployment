@@ -29,6 +29,9 @@ func TestIsReplicasGreaterThanDenied(t *testing.T) {
 	settings := Settings{
 		ReplicasGreaterThan: 2,
 	}
+	if settings.IsReplicasGreaterThanAllowed(0) {
+		t.Errorf("replicasGreaterThan should NOT be allowed")
+	}
 	if settings.IsReplicasGreaterThanAllowed(1) {
 		t.Errorf("replicasGreaterThan should be allowed")
 	}

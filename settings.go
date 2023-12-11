@@ -19,7 +19,7 @@ func (s *Settings) Valid() (bool, error) {
 }
 
 func (s *Settings) IsReplicasGreaterThanAllowed(replicas int) bool {
-	return replicas == 0 || replicas > s.ReplicasGreaterThan
+	return replicas > s.ReplicasGreaterThan
 }
 
 func NewSettingsFromValidationReq(validationReq *kubewarden_protocol.ValidationRequest) (Settings, error) {
